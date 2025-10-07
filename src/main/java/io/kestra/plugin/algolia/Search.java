@@ -25,7 +25,7 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Search Algolia Records",
+    title = "Search Algolia records.",
     description = "Perform a search query on an Algolia index and return matching records."
 )
 @Plugin(
@@ -53,7 +53,7 @@ import java.util.Map;
 public class Search extends AbstractAlgoliaTask<Search.Output> implements RunnableTask<Search.Output> {
     @Schema(
         title = "Index name",
-        description = "The Algolia index to search."
+        description = "The Algolia index to search"
     )
     @NotNull
     private Property<String> indexName;

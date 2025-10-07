@@ -26,8 +26,8 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Index Algolia Record(s)",
-    description = "Add or replace one or more records in an Algolia index. If an `objectID` exists, it is replaced otherwise a new record is created."
+    title = "Index Algolia record(s).",
+    description = "Add or replace one or more records in an Algolia index. If an `objectID` exists, it is replaced, otherwise a new record is created."
 )
 @Plugin(
     examples = {
@@ -75,14 +75,14 @@ import java.util.Map;
 public class Index extends AbstractAlgoliaTask<Index.Output> implements RunnableTask<Index.Output> {
     @Schema(
         title = "Index name",
-        description = "The Algolia index where the record will be stored."
+        description = "The Algolia index where the record will be stored"
     )
     @NotNull
     private Property<String> indexName;
 
     @Schema(
         title = "Record object",
-        description = "The object to index in Algolia (as JSON map)."
+        description = "The object to index in Algolia (as JSON map)"
     )
     @NotNull
     private Property<List<Map<String, Object>>> objects;
