@@ -26,7 +26,7 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Delete Algolia Record(s)",
+    title = "Delete Algolia record(s).",
     description = "Delete one or more records from an Algolia index by objectID."
 )
 @Plugin(
@@ -54,14 +54,14 @@ import java.util.Map;
 public class Delete extends AbstractAlgoliaTask<Delete.Output> implements RunnableTask<Delete.Output> {
     @Schema(
         title = "Index name",
-        description = "The Algolia index from which records will be deleted."
+        description = "The Algolia index from which records will be deleted"
     )
     @NotNull
     private Property<String> indexName;
 
     @Schema(
         title = "Object IDs",
-        description = "List of objectIDs of the records to delete."
+        description = "List of record objectIDs to delete"
     )
     @NotNull
     private Property<List<String>> objectIds;
@@ -92,7 +92,7 @@ public class Delete extends AbstractAlgoliaTask<Delete.Output> implements Runnab
     public static class Output implements io.kestra.core.models.tasks.Output {
         @Schema(
             title = "Object IDs",
-            description = "The objectIDs that were requested for deletion."
+            description = "The requested objectIDs for deletion"
         )
         private final List<String> objectIds;
     }
