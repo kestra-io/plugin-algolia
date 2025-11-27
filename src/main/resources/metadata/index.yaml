@@ -1,0 +1,8 @@
+group: io.kestra.plugin.algolia
+name: "algolia"
+title: "Algolia"
+description: "This sub-group of plugins contains tasks for using Algolia. Algolia is a hosted search engine API that provides fast, relevant search and discovery experiences for your applications."
+body: ""
+videos: []
+createdBy: "Kestra Core Team"
+managedBy: "Kestra Core Team"
