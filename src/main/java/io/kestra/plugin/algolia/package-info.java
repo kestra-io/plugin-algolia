@@ -1,6 +1,7 @@
 @PluginSubGroup(
-    description = "This sub-group of plugins contains tasks for using Algolia.\n" +
-        "Algolia is a hosted search engine API that provides fast, relevant search and discovery experiences for your applications.",
+    description = "Tasks that integrate with Algolia Search to index, query, and delete records.\n" +
+        "They use your Algolia Application ID and Admin API Key to operate on a target index, supporting batch writes, replacements, and removals.\n" +
+        "Use them to populate indexes (Index), clean up by objectID (Delete), or retrieve hits with any Algolia search parameters (Search).",
     categories = PluginSubGroup.PluginCategory.TOOL
 )
 package io.kestra.plugin.algolia;
