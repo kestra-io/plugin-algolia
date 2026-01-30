@@ -26,8 +26,8 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Delete Algolia record(s).",
-    description = "Delete one or more records from an Algolia index by objectID."
+    title = "Delete Algolia records by ID",
+    description = "Batch-delete records from an Algolia index using objectIDs. Uses a single batch request with the Admin API Key."
 )
 @Plugin(
     examples = {
@@ -53,15 +53,15 @@ import java.util.Map;
 )
 public class Delete extends AbstractAlgoliaTask<Delete.Output> implements RunnableTask<Delete.Output> {
     @Schema(
-        title = "Index name",
-        description = "The Algolia index from which records will be deleted"
+        title = "Target index name",
+        description = "Algolia index to delete from; must exist in the same application."
     )
     @NotNull
     private Property<String> indexName;
 
     @Schema(
-        title = "Object IDs",
-        description = "List of record objectIDs to delete"
+        title = "Object IDs to delete",
+        description = "List of objectIDs removed in a single batch; missing IDs are ignored by Algolia."
     )
     @NotNull
     private Property<List<String>> objectIds;
@@ -91,8 +91,8 @@ public class Delete extends AbstractAlgoliaTask<Delete.Output> implements Runnab
     @Getter
     public static class Output implements io.kestra.core.models.tasks.Output {
         @Schema(
-            title = "Object IDs",
-            description = "The requested objectIDs for deletion"
+            title = "Deleted objectIDs",
+            description = "ObjectIDs echoed by Algolia for the requested deletion batch."
         )
         private final List<String> objectIds;
     }

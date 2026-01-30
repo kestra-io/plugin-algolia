@@ -26,8 +26,8 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Index Algolia record(s).",
-    description = "Add or replace one or more records in an Algolia index. If an `objectID` exists, it is replaced, otherwise a new record is created."
+    title = "Index or replace Algolia records",
+    description = "Batch-add records to an Algolia index; any object with the same `objectID` is replaced. Runs a single batch write using the Admin API Key."
 )
 @Plugin(
     examples = {
@@ -74,15 +74,15 @@ import java.util.Map;
 )
 public class Index extends AbstractAlgoliaTask<Index.Output> implements RunnableTask<Index.Output> {
     @Schema(
-        title = "Index name",
-        description = "The Algolia index where the record will be stored"
+        title = "Target index name",
+        description = "Algolia index to write into; must exist or be created beforehand in your application."
     )
     @NotNull
     private Property<String> indexName;
 
     @Schema(
-        title = "Record object",
-        description = "The object to index in Algolia (as JSON map)"
+        title = "Record objects",
+        description = "List of JSON maps sent as-is to Algolia. If an item includes `objectID`, it will be replaced; otherwise Algolia generates one."
     )
     @NotNull
     private Property<List<Map<String, Object>>> objects;
@@ -114,7 +114,8 @@ public class Index extends AbstractAlgoliaTask<Index.Output> implements Runnable
     @Getter
     public static class Output implements io.kestra.core.models.tasks.Output {
         @Schema(
-            title = "Raw response from Algolia"
+            title = "Raw batch response",
+            description = "Full response returned by Algolia batch write, including taskID and objectIDs."
         )
         private final Map<String, Object> result;
     }
