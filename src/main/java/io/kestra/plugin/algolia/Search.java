@@ -25,8 +25,8 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode
 @Schema(
-    title = "Search Algolia records.",
-    description = "Perform a search query on an Algolia index and return matching records."
+    title = "Query records in an Algolia index",
+    description = "Runs a search against a single Algolia index with any supported search parameters and returns hits. Uses the Admin API Key; defaults return all records if no params are provided."
 )
 @Plugin(
     examples = {
@@ -52,16 +52,15 @@ import java.util.Map;
 )
 public class Search extends AbstractAlgoliaTask<Search.Output> implements RunnableTask<Search.Output> {
     @Schema(
-        title = "Index name",
-        description = "The Algolia index to search"
+        title = "Target index name",
+        description = "Algolia index to query within the configured application."
     )
     @NotNull
     private Property<String> indexName;
 
     @Schema(
         title = "Search parameters",
-        description = "Any valid Algolia search parameters (e.g., query, hitsPerPage, filters, facets). " +
-            "Defaults to an empty object, which returns all records."
+        description = "Any Algolia search params (query, hitsPerPage, filters, facets, etc.). Defaults to empty map, which returns all records with Algolia defaults (hitsPerPage=20)."
     )
     private Property<Map<String, Object>> params;
 
@@ -91,7 +90,10 @@ public class Search extends AbstractAlgoliaTask<Search.Output> implements Runnab
         @Schema(title = "Number of hits")
         private final Integer nbHits;
 
-        @Schema(title = "Search results (hits)")
+        @Schema(
+            title = "Search results (hits)",
+            description = "List of hits returned by Algolia for the query."
+        )
         private final List<ObjectNode> hits;
     }
 }

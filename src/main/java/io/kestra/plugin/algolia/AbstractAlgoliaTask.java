@@ -16,14 +16,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.Output> extends Task implements RunnableTask<T> {
     @Schema(
-        title =  "Algolia Application ID"
+        title =  "Provide Algolia Application ID",
+        description = "Required; project Application ID from the Algolia dashboard."
     )
     @NotNull
     protected Property<String> applicationId;
 
     @Schema(
-        title = "API Key",
-        description = "Algolia Admin API Key"
+        title = "Authenticate with Admin API Key",
+        description = "Admin API Key used for search, indexing, and deletes; render from secrets."
     )
     @NotNull
     protected Property<String> apiKey;
