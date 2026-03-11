@@ -1,18 +1,21 @@
 package io.kestra.plugin.algolia;
 
-import com.google.common.collect.ImmutableMap;
-import io.kestra.core.junit.annotations.KestraTest;
-import io.kestra.core.models.property.Property;
-import io.kestra.core.runners.RunContext;
-import io.kestra.core.runners.RunContextFactory;
-import jakarta.inject.Inject;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+
 import org.assertj.core.util.Strings;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
 
-import java.time.Duration;
-import java.util.List;
-import java.util.Map;
+import com.google.common.collect.ImmutableMap;
+
+import io.kestra.core.junit.annotations.KestraTest;
+import io.kestra.core.models.property.Property;
+import io.kestra.core.runners.RunContext;
+import io.kestra.core.runners.RunContextFactory;
+
+import jakarta.inject.Inject;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -27,10 +30,12 @@ class SearchTest {
     private RunContextFactory runContextFactory;
 
     private RunContext getRunContext() {
-        return runContextFactory.of(Map.of(
-            "execution", ImmutableMap.of("id", "#12345", "flowId", "algolia-search-test", "namespace", "org.test"),
-            "duration", Duration.ofMillis(123456)
-        ));
+        return runContextFactory.of(
+            Map.of(
+                "execution", ImmutableMap.of("id", "#12345", "flowId", "algolia-search-test", "namespace", "org.test"),
+                "duration", Duration.ofMillis(123456)
+            )
+        );
     }
 
     @Test
@@ -44,10 +49,16 @@ class SearchTest {
             .applicationId(Property.ofValue(getAppId()))
             .apiKey(Property.ofValue(getApiKey()))
             .indexName(Property.ofValue(indexName))
-            .objects(Property.ofValue(List.of(Map.of(
-                "objectID", objectId,
-                "name", "Search T-shirt"
-            ))))
+            .objects(
+                Property.ofValue(
+                    List.of(
+                        Map.of(
+                            "objectID", objectId,
+                            "name", "Search T-shirt"
+                        )
+                    )
+                )
+            )
             .build();
 
         indexTask.run(runContext);

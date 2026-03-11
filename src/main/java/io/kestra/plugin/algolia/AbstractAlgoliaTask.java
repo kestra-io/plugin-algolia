@@ -1,10 +1,12 @@
 package io.kestra.plugin.algolia;
 
 import com.algolia.api.SearchClient;
+
 import io.kestra.core.models.property.Property;
 import io.kestra.core.models.tasks.RunnableTask;
 import io.kestra.core.models.tasks.Task;
 import io.kestra.core.runners.RunContext;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -16,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.Output> extends Task implements RunnableTask<T> {
     @Schema(
-        title =  "Provide Algolia Application ID",
+        title = "Provide Algolia Application ID",
         description = "Required; project Application ID from the Algolia dashboard."
     )
     @NotNull

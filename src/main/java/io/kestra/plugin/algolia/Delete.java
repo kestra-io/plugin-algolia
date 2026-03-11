@@ -1,24 +1,24 @@
 package io.kestra.plugin.algolia;
 
+import java.util.List;
+import java.util.Map;
+
 import com.algolia.api.SearchClient;
+import com.algolia.model.search.Action;
 import com.algolia.model.search.BatchRequest;
 import com.algolia.model.search.BatchResponse;
 import com.algolia.model.search.BatchWriteParams;
-import com.algolia.model.search.Action;
-import com.fasterxml.jackson.core.type.TypeReference;
+
 import io.kestra.core.models.annotations.Example;
 import io.kestra.core.models.annotations.Plugin;
 import io.kestra.core.models.property.Property;
 import io.kestra.core.models.tasks.RunnableTask;
 import io.kestra.core.runners.RunContext;
-import io.kestra.core.serializers.JacksonMapper;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
-import java.util.Map;
 
 @SuperBuilder
 @Getter
