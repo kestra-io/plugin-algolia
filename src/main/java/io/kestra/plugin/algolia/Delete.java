@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import io.kestra.core.models.annotations.PluginProperty;
 
 @SuperBuilder
 @Getter
@@ -57,6 +58,7 @@ public class Delete extends AbstractAlgoliaTask<Delete.Output> implements Runnab
         description = "Algolia index to delete from; must exist in the same application."
     )
     @NotNull
+    @PluginProperty(group = "main")
     private Property<String> indexName;
 
     @Schema(
@@ -64,6 +66,7 @@ public class Delete extends AbstractAlgoliaTask<Delete.Output> implements Runnab
         description = "List of objectIDs removed in a single batch; missing IDs are ignored by Algolia."
     )
     @NotNull
+    @PluginProperty(group = "main")
     private Property<List<String>> objectIds;
 
     @Override

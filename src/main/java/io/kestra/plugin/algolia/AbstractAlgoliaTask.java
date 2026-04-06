@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import io.kestra.core.models.annotations.PluginProperty;
 
 @SuperBuilder
 @Getter
@@ -22,6 +23,7 @@ public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.
         description = "Required; project Application ID from the Algolia dashboard."
     )
     @NotNull
+    @PluginProperty(group = "main")
     protected Property<String> applicationId;
 
     @Schema(
@@ -29,6 +31,7 @@ public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.
         description = "Admin API Key used for search, indexing, and deletes; render from secrets."
     )
     @NotNull
+    @PluginProperty(group = "main")
     protected Property<String> apiKey;
 
     protected SearchClient client(RunContext runContext) throws Exception {
