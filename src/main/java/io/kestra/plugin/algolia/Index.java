@@ -21,6 +21,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import io.kestra.core.models.annotations.PluginProperty;
 
 @SuperBuilder
 @Getter
@@ -80,6 +81,7 @@ public class Index extends AbstractAlgoliaTask<Index.Output> implements Runnable
         description = "Algolia index to write into; must exist or be created beforehand in your application."
     )
     @NotNull
+    @PluginProperty(group = "main")
     private Property<String> indexName;
 
     @Schema(
@@ -87,6 +89,7 @@ public class Index extends AbstractAlgoliaTask<Index.Output> implements Runnable
         description = "List of JSON maps sent as-is to Algolia. If an item includes `objectID`, it will be replaced; otherwise Algolia generates one."
     )
     @NotNull
+    @PluginProperty(group = "main")
     private Property<List<Map<String, Object>>> objects;
 
     @Override

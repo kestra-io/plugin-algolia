@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import io.kestra.core.models.annotations.PluginProperty;
 
 @SuperBuilder
 @Getter
@@ -57,12 +58,14 @@ public class Search extends AbstractAlgoliaTask<Search.Output> implements Runnab
         description = "Algolia index to query within the configured application."
     )
     @NotNull
+    @PluginProperty(group = "main")
     private Property<String> indexName;
 
     @Schema(
         title = "Search parameters",
         description = "Any Algolia search params (query, hitsPerPage, filters, facets, etc.). Defaults to empty map, which returns all records with Algolia defaults (hitsPerPage=20)."
     )
+    @PluginProperty(group = "advanced")
     private Property<Map<String, Object>> params;
 
     @Override
