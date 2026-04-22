@@ -31,7 +31,7 @@ public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.
         description = "Admin API Key used for search, indexing, and deletes; render from secrets."
     )
     @NotNull
-    @PluginProperty(group = "main")
+    @PluginProperty(group = "main", secret = true)
     protected Property<String> apiKey;
 
     protected SearchClient client(RunContext runContext) throws Exception {
