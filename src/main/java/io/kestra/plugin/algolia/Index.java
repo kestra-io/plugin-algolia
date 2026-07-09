@@ -43,7 +43,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 
                 tasks:
                   - id: index
-                    type: io.kestra.plugin.algolia.record.Index
+                    type: io.kestra.plugin.algolia.Index
                     applicationId: "{{ secret('ALGOLIA_APP_ID') }}"
                     apiKey: "{{ secret('ALGOLIA_API_KEY') }}"
                     indexName: "products"
@@ -62,7 +62,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 
                 tasks:
                   - id: add_products
-                    type: io.kestra.plugin.algolia.record.Index
+                    type: io.kestra.plugin.algolia.Index
                     applicationId: "{{ secret('ALGOLIA_APP_ID') }}"
                     apiKey: "{{ secret('ALGOLIA_API_KEY') }}"
                     indexName: "products"

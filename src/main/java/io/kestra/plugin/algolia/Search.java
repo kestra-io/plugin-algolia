@@ -41,7 +41,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 
                 tasks:
                   - id: search_products
-                    type: io.kestra.plugin.algolia.record.Search
+                    type: io.kestra.plugin.algolia.Search
                     applicationId: "{{ secret('ALGOLIA_APP_ID') }}"
                     apiKey: "{{ secret('ALGOLIA_API_KEY') }}"
                     indexName: "products"
