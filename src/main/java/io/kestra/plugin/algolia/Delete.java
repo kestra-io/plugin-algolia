@@ -41,7 +41,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 
                 tasks:
                   - id: remove_products
-                    type: io.kestra.plugin.algolia.record.Delete
+                    type: io.kestra.plugin.algolia.Delete
                     applicationId: "{{ secret('ALGOLIA_APP_ID') }}"
                     apiKey: "{{ secret('ALGOLIA_API_KEY') }}"
                     indexName: "products"
