@@ -4,7 +4,7 @@ Index, search, and delete records in Algolia from Kestra flows.
 
 ## Authentication
 
-Set `applicationId` to your Algolia application ID and `apiKey` to your API key (both required). Store secrets in [secrets](https://kestra.io/docs/concepts/secret) and apply connection properties globally with [plugin defaults](https://kestra.io/docs/workflow-components/plugin-defaults).
+Set `applicationId` to your Algolia application ID and `apiKey` to your Algolia Admin API Key (both required). Store secrets in [secrets](https://kestra.io/docs/concepts/secret) and apply connection properties globally with [plugin defaults](https://kestra.io/docs/workflow-components/plugin-defaults).
 
 ## Tasks
 

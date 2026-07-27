@@ -28,7 +28,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 @EqualsAndHashCode
 @Schema(
     title = "Query records in an Algolia index",
-    description = "Runs a search against a single Algolia index with any supported search parameters and returns hits. Uses the Admin API Key; defaults return all records if no params are provided."
+    description = "Runs a search against a single Algolia index with any supported search parameters and returns hits. Uses the Admin API Key. With no params, the empty query matches all records but returns only the first page (Algolia default hitsPerPage=20)."
 )
 @Plugin(
     examples = {
@@ -63,7 +63,7 @@ public class Search extends AbstractAlgoliaTask<Search.Output> implements Runnab
 
     @Schema(
         title = "Search parameters",
-        description = "Any Algolia search params (query, hitsPerPage, filters, facets, etc.). Defaults to empty map, which returns all records with Algolia defaults (hitsPerPage=20)."
+        description = "Any Algolia search params (query, hitsPerPage, filters, facets, etc.). Defaults to an empty map: the empty query matches all records but returns only the first page (Algolia default hitsPerPage=20)."
     )
     @PluginProperty(group = "advanced")
     private Property<Map<String, Object>> params;

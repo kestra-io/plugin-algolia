@@ -45,7 +45,7 @@ import io.kestra.core.models.annotations.PluginProperty;
                     applicationId: "{{ secret('ALGOLIA_APP_ID') }}"
                     apiKey: "{{ secret('ALGOLIA_API_KEY') }}"
                     indexName: "products"
-                    objectIDs:
+                    objectIds:
                       - "id_1"
                       - "id_2"
                 """
