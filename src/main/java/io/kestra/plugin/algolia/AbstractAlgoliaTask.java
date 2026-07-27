@@ -19,7 +19,7 @@ import io.kestra.core.models.annotations.PluginProperty;
 @NoArgsConstructor
 public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.Output> extends Task implements RunnableTask<T> {
     @Schema(
-        title = "Provide Algolia Application ID",
+        title = "Algolia Application ID",
         description = "Required; project Application ID from the Algolia dashboard."
     )
     @NotNull
@@ -27,7 +27,7 @@ public abstract class AbstractAlgoliaTask<T extends io.kestra.core.models.tasks.
     protected Property<String> applicationId;
 
     @Schema(
-        title = "Authenticate with Admin API Key",
+        title = "Admin API Key",
         description = "Admin API Key used for search, indexing, and deletes; render from secrets."
     )
     @NotNull
